@@ -3,6 +3,7 @@ import React from "react";
 import {
   ActivityIndicator,
   Pressable,
+  StyleProp,
   StyleSheet,
   TextStyle,
   useColorScheme,
@@ -20,8 +21,8 @@ interface ButtonProps {
   disabled?: boolean;
   loading?: boolean;
   children: React.ReactNode;
-  style?: ViewStyle;
-  textStyle?: TextStyle;
+  style?: StyleProp<ViewStyle>;
+  textStyle?: StyleProp<TextStyle>;
 }
 
 /**

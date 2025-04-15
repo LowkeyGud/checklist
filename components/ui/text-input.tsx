@@ -3,6 +3,7 @@ import React from "react";
 import {
   TextInput as RNTextInput,
   TextInputProps as RNTextInputProps,
+  StyleProp,
   StyleSheet,
   TextStyle,
   useColorScheme,
@@ -19,8 +20,8 @@ interface TextInputProps extends Omit<RNTextInputProps, "style"> {
   error?: string;
   variant?: InputVariant;
   size?: InputSize;
-  containerStyle?: ViewStyle;
-  inputStyle?: TextStyle;
+  containerStyle?: StyleProp<ViewStyle>;
+  inputStyle?: StyleProp<TextStyle>;
   disabled?: boolean;
 }
 
