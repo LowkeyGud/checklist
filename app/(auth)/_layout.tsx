@@ -1,3 +1,4 @@
+import { IS_IOS } from "@/constants/Platform";
 import { useAuth } from "@clerk/clerk-expo";
 import { Redirect, Stack } from "expo-router";
 
@@ -11,7 +12,7 @@ export default function AuthRoutesLayout() {
   return (
     <Stack
       screenOptions={{
-        ...(process.env.EXPO_OS !== "ios"
+        ...(!IS_IOS
           ? {}
           : {
               headerLargeTitle: true,
@@ -31,7 +32,7 @@ export default function AuthRoutesLayout() {
         options={{ headerTitle: "Welcome back!", headerShown: false }}
       />
       <Stack.Screen
-        name="sign-in-email"
+        name="sign-in"
         options={{ headerTitle: "Sign in with Email" }}
       />
       <Stack.Screen name="sign-up" options={{ headerTitle: "Sign up" }} />
