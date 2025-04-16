@@ -1,5 +1,6 @@
 import { ThemedText } from "@/components/ThemedText";
 import Button from "@/components/ui/button";
+import { IS_WEB } from "@/constants/Platform";
 import React, { useEffect, useState } from "react";
 import {
   Modal,
@@ -111,9 +112,11 @@ const CustomAlert: React.FC<CustomAlertProps> = ({
       transform.push({
         scale: interpolate(
           progress.value,
-          [0, 1],
-          [0.8, 1],
+          [0, 1], // Input range : When progress.value is 0, the output will be 0.8.
+          [0.8, 1], // Output range : When progress.value is 1, the output will be 1.
           Extrapolation.CLAMP
+          // Clamp: Restrict the output to the outputRange.
+          // Extend: Allow values to go beyond the outputRange.
         ),
       });
     } else if (animationType === "slide") {
@@ -140,7 +143,7 @@ const CustomAlert: React.FC<CustomAlertProps> = ({
   });
 
   // For web platform
-  if (Platform.OS === "web") {
+  if (IS_WEB) {
     if (!modalVisible) return null;
 
     return (
