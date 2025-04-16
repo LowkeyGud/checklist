@@ -360,7 +360,7 @@ export const emojies = [
   "🥢",
   "🧂",
 
-  // Shopping & Payment
+  // Check & Payment
   "🛒",
   "🛍️",
   "🧺",
@@ -410,7 +410,7 @@ export const emojies = [
   "⚖️",
   "🏠",
 
-  // Transportation & Movement (for shopping trips)
+  // Transportation & Movement (for Check trips)
   "🚗",
   "🏃‍♂️",
   "🏃‍♀️",
@@ -436,7 +436,7 @@ export const emojies = [
   "🕶️",
   "👒",
 
-  // Household Items (Things you might add to a shopping list)
+  // Household Items (Things you might add to a Check list)
   "🪣",
   "🪑",
   "🛋️",

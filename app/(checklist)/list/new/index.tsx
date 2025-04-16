@@ -19,7 +19,7 @@ const isValidUUID = (id: string | null) => {
 
 const NewListScreen = () => {
   const router = useRouter();
-  const joinShoppingListCallback = (listId: string) => {};
+  const joinCheckListCallback = (listId: string) => {};
   const [listId, setListId] = useState<string>("");
   const isValidListId = useMemo(() => isValidUUID(listId), [listId]);
 
@@ -48,7 +48,7 @@ const NewListScreen = () => {
 
   const handleJoinList = () => {
     if (listId && isValidUUID(listId)) {
-      joinShoppingListCallback(listId);
+      joinCheckListCallback(listId);
 
       // dismissTo method is not working due to a bug in react-native-screens
       router.dismiss();
@@ -98,7 +98,7 @@ const NewListScreen = () => {
               value={listId}
               onChangeText={setListId}
               onSubmitEditing={(e) => {
-                joinShoppingListCallback(e.nativeEvent.text);
+                joinCheckListCallback(e.nativeEvent.text);
               }}
               containerStyle={{ marginBottom: 0 }}
             />

@@ -41,7 +41,7 @@ const CheckListApp = () => {
     <>
       <Stack.Screen
         options={{
-          title: "Shopping lists",
+          title: "Check lists",
           headerTitleAlign: "center",
           headerRight: renderHeaderRight,
           headerLeft: renderHeaderLeft,
