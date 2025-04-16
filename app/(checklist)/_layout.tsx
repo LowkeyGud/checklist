@@ -33,15 +33,6 @@ export default function ChecklistLayout() {
       }}
     >
       <Stack.Screen
-        name="list/new/index"
-        options={{
-          headerTitle: "Add new list",
-          presentation: IS_IOS ? "formSheet" : "card",
-          headerShown: IS_IOS ? false : true,
-          ...(IS_IOS && { sheetGrabberVisible: true }),
-        }}
-      />
-      <Stack.Screen
         name="list/[listId]/edit"
         options={{
           presentation: IS_IOS ? "formSheet" : "card",
@@ -65,6 +56,24 @@ export default function ChecklistLayout() {
             sheetGrabberVisible: true,
             headerLargeTitle: false,
           }),
+        }}
+      />
+      <Stack.Screen
+        name="list/new/create"
+        options={{
+          headerTitle: "Create new list",
+          presentation: IS_IOS ? "formSheet" : "card",
+          headerShown: IS_IOS ? false : true,
+          ...(IS_IOS && { sheetGrabberVisible: true }),
+        }}
+      />
+      <Stack.Screen
+        name="list/new/index"
+        options={{
+          headerTitle: "Add new list",
+          presentation: IS_IOS ? "formSheet" : "card",
+          headerShown: IS_IOS ? false : true,
+          ...(IS_IOS && { sheetGrabberVisible: true }),
         }}
       />
       <Stack.Screen
