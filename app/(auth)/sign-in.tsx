@@ -2,11 +2,10 @@ import { ThemedText } from "@/components/ThemedText";
 import { BodyScrollView } from "@/components/ui/BodyScrollView";
 import Button from "@/components/ui/button";
 import TextInput from "@/components/ui/text-input";
-import { IS_IOS } from "@/constants/Platform";
 import { useWarmUpBrowser } from "@/hooks/useWarmUpBrowser";
+import { safeImpactMedium } from "@/utils/SafeHaptics";
 import { isClerkAPIResponseError, useSignIn, useSSO } from "@clerk/clerk-expo";
 import { ClerkAPIError } from "@clerk/types";
-import * as Haptics from "expo-haptics";
 import { useRouter } from "expo-router";
 import * as WebBrowser from "expo-web-browser";
 import React from "react";
@@ -36,9 +35,7 @@ export default function SignInScreen() {
   const onSignInPress = React.useCallback(async () => {
     if (!isLoaded) return;
 
-    if (IS_IOS) {
-      await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    }
+    safeImpactMedium();
     setIsSigningIn(true);
     setErrors([]);
 

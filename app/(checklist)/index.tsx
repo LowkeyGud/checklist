@@ -1,4 +1,5 @@
 import { IconSymbol } from "@/components/ui/IconSymbol";
+import { safeImpactMedium } from "@/utils/SafeHaptics";
 import { Stack, useRouter } from "expo-router";
 import React from "react";
 import { Platform, StyleSheet } from "react-native";
@@ -9,12 +10,12 @@ const ICON_COLOR = "#007AFF";
 const CheckListApp = () => {
   const router = useRouter();
   const handleNewListPress = () => {
-    // Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    safeImpactMedium();
     router.push("/list/new");
   };
 
   const handleProfilePress = () => {
-    // Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    safeImpactMedium();
     router.push("/(checklist)/profile");
   };
   const renderHeaderRight = () => (

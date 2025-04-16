@@ -2,10 +2,9 @@ import { ThemedText } from "@/components/ThemedText";
 import { BodyScrollView } from "@/components/ui/BodyScrollView";
 import Button from "@/components/ui/button";
 import TextInput from "@/components/ui/text-input";
-import { IS_IOS } from "@/constants/Platform";
+import { safeImpactMedium } from "@/utils/SafeHaptics";
 import { isClerkAPIResponseError, useSignUp } from "@clerk/clerk-expo";
 import { ClerkAPIError } from "@clerk/types";
-import * as Haptics from "expo-haptics";
 import { useRouter } from "expo-router";
 import * as React from "react";
 
@@ -22,9 +21,7 @@ export default function SignUpScreen() {
 
   const onSignUpPress = async () => {
     if (!isLoaded) return;
-    if (IS_IOS) {
-      await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    }
+    safeImpactMedium();
     setIsLoading(true);
     setErrors([]);
 
@@ -52,9 +49,7 @@ export default function SignUpScreen() {
   // Handle submission of verification form
   const onVerifyPress = async () => {
     if (!isLoaded) return;
-    if (IS_IOS) {
-      await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    }
+    safeImpactMedium();
     setIsLoading(true);
 
     try {
