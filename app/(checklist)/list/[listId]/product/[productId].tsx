@@ -60,6 +60,12 @@ function ProductContent({
         paddingBottom: 100,
       }}
     >
+      <ThemedText
+        type="default"
+        style={{ marginBottom: 8, opacity: 0.3, fontWeight: "800" }}
+      >
+        Asterik(*) indicates the editable fields.
+      </ThemedText>
       <FieldItem label="Product name" value={name} onChangeText={setName} />
       <FieldItem label="Created by" value={createdBy ?? "unknown"} />
       <FieldItem
@@ -77,7 +83,7 @@ function ProductContent({
           gap: 8,
         }}
       >
-        <ThemedText type="defaultSemiBold">Notes</ThemedText>
+        <ThemedText type="defaultSemiBold">Notes*</ThemedText>
         <TextInput
           value={notes ?? "(none)"}
           editable={true}
@@ -119,7 +125,10 @@ function FieldItem({
         gap: 8,
       }}
     >
-      <ThemedText type="defaultSemiBold">{label}</ThemedText>
+      <ThemedText type="defaultSemiBold">
+        {label}
+        {onChangeText !== undefined && "*"}
+      </ThemedText>
       <TextInput
         value={value}
         editable={onChangeText !== undefined}

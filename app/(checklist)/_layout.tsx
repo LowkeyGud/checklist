@@ -101,7 +101,7 @@ export default function ChecklistLayout() {
               name="list/[listId]/product/[productId]"
               options={{
                 presentation: IS_IOS ? "formSheet" : "card",
-                headerTitle: "Details",
+                headerTitle: "Edit Details",
                 headerShown: IS_IOS ? false : true,
                 ...(IS_IOS && {
                   sheetAllowedDetents: [0.75, 1],
