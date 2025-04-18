@@ -68,7 +68,7 @@ export default function ResetPasswordScreen() {
         <TextInput
           value={password}
           label="Enter your new password"
-          placeholder="Enter your new password"
+          placeholder="Don't forget this one too 😒"
           secureTextEntry
           onChangeText={setPassword}
         />
@@ -89,7 +89,7 @@ export default function ResetPasswordScreen() {
       <TextInput
         autoCapitalize="none"
         value={emailAddress}
-        placeholder="Enter email"
+        placeholder="Enter your email here 😑 "
         keyboardType="email-address"
         onChangeText={setEmailAddress}
       />

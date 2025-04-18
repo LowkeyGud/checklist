@@ -108,13 +108,13 @@ export default function SignUpScreen() {
       <TextInput
         autoCapitalize="none"
         value={emailAddress}
-        placeholder="Enter email"
+        placeholder="Email like hulala@gmail.com"
         keyboardType="email-address"
         onChangeText={(email) => setEmailAddress(email)}
       />
       <TextInput
         value={password}
-        placeholder="Enter password"
+        placeholder="Enter a seccu password"
         secureTextEntry={true}
         onChangeText={(password) => setPassword(password)}
       />
