@@ -1,14 +1,21 @@
+import CheckListItem from "@/components/CheckListItem";
+import { IconCircle } from "@/components/IconCircle";
+import { BodyScrollView } from "@/components/ui/BodyScrollView";
+import Button from "@/components/ui/button";
 import { IconSymbol } from "@/components/ui/IconSymbol";
+import { backgroundColors } from "@/constants/Colors";
+import { useCheckListIds } from "@/stores/CheckListsStore";
 import { safeImpactMedium } from "@/utils/SafeHaptics";
 import { Stack, useRouter } from "expo-router";
 import React from "react";
-import { Platform, StyleSheet } from "react-native";
+import { FlatList, Platform, StyleSheet } from "react-native";
 import { Pressable } from "react-native-gesture-handler";
 
 const ICON_COLOR = "#007AFF";
 
 const CheckListApp = () => {
   const router = useRouter();
+  const CheckListIds = useCheckListIds();
   const handleNewListPress = () => {
     safeImpactMedium();
     router.push("/list/new");
@@ -37,6 +44,20 @@ const CheckListApp = () => {
     </Pressable>
   );
 
+  const renderEmptyList = () => (
+    <BodyScrollView contentContainerStyle={styles.emptyStateContainer}>
+      <IconCircle
+        emoji="🛒"
+        backgroundColor={
+          backgroundColors[Math.floor(Math.random() * backgroundColors.length)]
+        }
+      />
+      <Button onPress={handleNewListPress} variant="ghost">
+        Create your first list
+      </Button>
+    </BodyScrollView>
+  );
+
   return (
     <>
       <Stack.Screen
@@ -46,6 +67,13 @@ const CheckListApp = () => {
           headerRight: renderHeaderRight,
           headerLeft: renderHeaderLeft,
         }}
+      />
+      <FlatList
+        data={CheckListIds}
+        renderItem={({ item: listId }) => <CheckListItem listId={listId} />}
+        contentContainerStyle={styles.listContainer}
+        contentInsetAdjustmentBehavior="automatic"
+        ListEmptyComponent={renderEmptyList}
       />
     </>
   );
