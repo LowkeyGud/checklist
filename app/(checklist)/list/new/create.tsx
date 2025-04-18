@@ -3,6 +3,7 @@ import Button from "@/components/ui/button";
 import TextInput from "@/components/ui/text-input";
 import { appleBlue, backgroundColors, emojies } from "@/constants/Colors";
 import { useListCreation } from "@/context/ListCreationContext";
+import { useAddCheckListCallback } from "@/stores/CheckListsStore";
 import { Link, Stack, useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
@@ -14,8 +15,7 @@ const CreateListScreen = () => {
     useListCreation();
 
   const router = useRouter();
-  const useAddShoppingList = (a: string, b: string, c: string, d: string) =>
-    "hello";
+  const useAddCheckList = useAddCheckListCallback();
 
   useEffect(() => {
     setSelectedEmoji(emojies[Math.floor(Math.random() * emojies.length)]);
@@ -35,7 +35,7 @@ const CreateListScreen = () => {
       return;
     }
 
-    const listId = useAddShoppingList(
+    const listId = useAddCheckList(
       listName,
       listDescription,
       selectedEmoji,
@@ -78,7 +78,7 @@ const CreateListScreen = () => {
     const testColors = Object.values(backgroundColors).slice(0, 10);
 
     testListNames.forEach((name, index) => {
-      useAddShoppingList(
+      useAddCheckList(
         name,
         `This is a test list for ${name}`,
         testEmojis[index],

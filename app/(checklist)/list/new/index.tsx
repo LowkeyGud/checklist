@@ -5,7 +5,8 @@ import Button from "@/components/ui/button";
 import TextInput from "@/components/ui/text-input";
 import { backgroundColors, emojies } from "@/constants/Colors";
 import { IS_IOS } from "@/constants/Platform";
-import { Href, useRouter } from "expo-router";
+import { useJoinCheckListCallback } from "@/stores/CheckListsStore";
+import { Href, useGlobalSearchParams, useRouter } from "expo-router";
 import React, { useMemo, useState } from "react";
 import { StyleSheet, View } from "react-native";
 
@@ -18,9 +19,12 @@ const isValidUUID = (id: string | null) => {
 };
 
 const NewListScreen = () => {
+  const params = useGlobalSearchParams();
+  const { listId: listIdParam } = params as { listId: string | undefined };
+
   const router = useRouter();
-  const joinCheckListCallback = (listId: string) => {};
-  const [listId, setListId] = useState<string>("");
+  const joinCheckListCallback = useJoinCheckListCallback();
+  const [listId, setListId] = useState<string | null>(listIdParam);
   const isValidListId = useMemo(() => isValidUUID(listId), [listId]);
 
   const randomEmoji = useMemo(
