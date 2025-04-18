@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { IS_IOS } from "@/constants/Platform";
 import { ListCreationProvider } from "@/context/ListCreationContext";
+import CheckListsStore from "@/stores/CheckListsStore";
 import { SignedIn, useUser } from "@clerk/clerk-expo";
 import { Redirect, router, Stack } from "expo-router";
 import React from "react";
@@ -17,6 +18,7 @@ export default function ChecklistLayout() {
   return (
     <SignedIn>
       <TinyBaseProvider>
+        <CheckListsStore />
         <ListCreationProvider>
           <Stack
             screenOptions={{

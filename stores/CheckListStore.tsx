@@ -29,7 +29,7 @@ const TABLES_SCHEMA = {
     name: { type: "string" },
     quantity: { type: "number" },
     units: { type: "string" },
-    isPurchased: { type: "boolean", default: false },
+    isChecked: { type: "boolean", default: false },
     category: { type: "string", default: "" },
     notes: { type: "string" },
     createdBy: { type: "string" }, // userId
