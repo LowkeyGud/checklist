@@ -2,13 +2,13 @@ import { appleBlue, zincColors } from "@/constants/Colors";
 import React from "react";
 import {
   ActivityIndicator,
-  Pressable,
   StyleProp,
   StyleSheet,
   TextStyle,
   useColorScheme,
   ViewStyle,
 } from "react-native";
+import { Pressable } from "react-native-gesture-handler";
 import { ThemedText } from "../ThemedText";
 
 type ButtonVariant = "filled" | "outline" | "ghost";

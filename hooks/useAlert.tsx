@@ -17,8 +17,6 @@ export const useAlert = () => {
     setAlertProps((prev) => ({ ...prev, visible: false }));
   };
 
-  console.log(alertProps.visible, "alert.visible");
-
   const alertComponent = (
     <CustomAlert
       {...alertProps}

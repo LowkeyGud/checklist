@@ -149,12 +149,19 @@ const CustomAlert: React.FC<CustomAlertProps> = ({
     return (
       <div style={webStyles.overlay}>
         <Pressable onPress={handleDismiss}>
+          {/* Modal like thing that closes when pessing outside the modal */}
           <Animated.View style={[webStyles.backdrop, backdropAnimatedStyle]} />
         </Pressable>
-        <Animated.View style={[webStyles.container, animatedContainerStyle]}>
-          <View
-            style={[styles.alertBox, isDark && { backgroundColor: "black" }]}
-          >
+        <Animated.View
+          style={[
+            webStyles.container,
+            animatedContainerStyle,
+            isDark
+              ? { backgroundColor: "#222324" }
+              : { backgroundColor: "white" },
+          ]}
+        >
+          <View style={[styles.alertBox]}>
             {title ? (
               <ThemedText style={styles.title}>{title}</ThemedText>
             ) : null}
@@ -176,8 +183,8 @@ const CustomAlert: React.FC<CustomAlertProps> = ({
                     index > 0 && buttons.length > 2 && styles.buttonMarginTop,
                     button.style,
                   ]}
-                  variant={index === 0 ? "ghost" : "filled"}
                   textStyle={button.textStyle}
+                  variant={index === 0 ? "ghost" : "filled"}
                   onPress={() => handleButtonPress(button.onPress)}
                   disabled={isAnimating}
                 >
@@ -208,7 +215,9 @@ const CustomAlert: React.FC<CustomAlertProps> = ({
           style={[
             styles.alertBox,
             animatedContainerStyle,
-            isDark && { backgroundColor: "black" },
+            isDark
+              ? { backgroundColor: "black" }
+              : { backgroundColor: "white" },
           ]}
         >
           {title ? <ThemedText style={styles.title}>{title}</ThemedText> : null}
@@ -231,7 +240,7 @@ const CustomAlert: React.FC<CustomAlertProps> = ({
                   button.style,
                 ]}
                 variant={index === 0 ? "ghost" : "filled"}
-                textStyle={[styles.buttonText, button.textStyle]}
+                // textStyle={[styles.buttonText, button.textStyle]}
                 onPress={() => handleButtonPress(button.onPress)}
                 disabled={isAnimating}
               >
@@ -257,6 +266,7 @@ const webStyles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     zIndex: 1000,
+    backgroundColor: "#00000080", // Semi-transparent black
   },
   backdrop: {
     position: "absolute",
@@ -264,10 +274,11 @@ const webStyles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: "black",
   },
   container: {
     zIndex: 1001,
+    borderRadius: 10,
+    elevation: 5,
   },
 });
 
@@ -284,7 +295,8 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: "black",
+    backgroundColor: "transparent",
+    // elevation: 5,
   },
   alertBox: {
     // backgroundColor: "white",

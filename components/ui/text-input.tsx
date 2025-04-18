@@ -1,7 +1,6 @@
 import { zincColors } from "@/constants/Colors";
 import React from "react";
 import {
-  TextInput as RNTextInput,
   TextInputProps as RNTextInputProps,
   StyleProp,
   StyleSheet,
@@ -10,6 +9,7 @@ import {
   View,
   ViewStyle,
 } from "react-native";
+import { TextInput as RNTextInput } from "react-native-gesture-handler";
 import { ThemedText } from "../ThemedText";
 
 type InputVariant = "default" | "filled" | "outlined" | "ghost";
