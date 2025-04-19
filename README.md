@@ -1,6 +1,7 @@
 # 📋 Checklist App
 
-![Checklist App Banner](https://via.placeholder.com/1200x400?text=Checklist+App) <!-- Replace with actual banner -->
+- **Android**: [Download Now from Mediafire](https://tinyurl.com/checklist-apk)
+- **Web**: [Checklist Web App](https://lowkeygud-checklist.expo.app)
 
 ## 🚀 Overview
 
