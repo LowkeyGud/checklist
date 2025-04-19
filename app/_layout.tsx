@@ -18,6 +18,12 @@ import {
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
+// Set the animation options. This is optional.
+SplashScreen.setOptions({
+  duration: 100,
+  fade: true,
+});
+
 const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!;
 
 export default function RootLayout() {

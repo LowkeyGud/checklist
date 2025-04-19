@@ -26,8 +26,7 @@ export default function ProfileScreen() {
     try {
       await Share.share({
         message: "Check out Check List: Sync & Share on the Github!",
-        // TODO: Link the repo
-        url: "https://github.com/LowkeyGud",
+        url: "https://github.com/LowkeyGud/checklist",
       });
     } catch (error) {
       console.error(error);

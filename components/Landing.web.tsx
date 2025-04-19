@@ -76,7 +76,7 @@ export default function Landing({
             <a
               style={{ textDecoration: "none" }}
               className={styles.button}
-              href="https://github.com/LowkeyGud"
+              href="https://tinyurl.com/checklist-apk"
             >
               ⬇️ Download from Media Fire
             </a>

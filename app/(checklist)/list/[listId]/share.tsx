@@ -9,8 +9,7 @@ export default function ShareListScreen() {
   const { listId } = useLocalSearchParams() as { listId: string };
 
   const handleShareListCode = async () => {
-    // TODO: Add a link to download the app
-    const shareMessage = `🛒 Join my Check list!\n\nPaste this code in the app to start collaborating:\n\n${listId}\n\nDon't have the app yet? Download it here:\n LINK HERE`;
+    const shareMessage = `🛒 Join my Check list!\n\nPaste this code in the app to start collaborating:\n\n${listId}\n\nDon't have the app yet? Download it here:\n https://tinyurl.com/checklist-apk`;
 
     try {
       await Share.share({ message: shareMessage });
