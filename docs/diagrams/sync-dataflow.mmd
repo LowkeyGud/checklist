@@ -1,0 +1,23 @@
+%%{init: {"theme": "default"}}%%
+flowchart TD
+  AUTH["Clerk identity<br/>SecureStore TokenCache"] -.-> UI
+
+  subgraph CLIENT["Expo client (client/)"]
+    UI["Lists + products UI"]
+    STORE["MergeableStore per list"]
+    SQLITE[("SQLite per storeId<br/>expo-sqlite persister")]
+    SYNC["WS synchronizer<br/>reconnecting-websocket"]
+    UI <--> STORE
+    STORE <--> SQLITE
+    STORE <--> SYNC
+  end
+
+  subgraph SERVER["Cloudflare Worker (server/)"]
+    FETCH["fetch via CHECKLIST binding"]
+    ROOM["ChecklistObject room<br/>one per storeId"]
+    DOSTORE[("DO SQLite storage<br/>migration v1")]
+    FETCH --> ROOM
+    ROOM <--> DOSTORE
+  end
+
+  SYNC <-->|"websocket<br/>SYNC_SERVER_URL + storeId"| FETCH

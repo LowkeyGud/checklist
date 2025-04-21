@@ -1,0 +1,24 @@
+# dependencies
+node_modules/
+
+# Expo
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# Cloudflare / Wrangler local state
+.wrangler/
+.dev.vars
+
+# local env files
+.env*.local
+.env
+
+# TypeScript / coverage
+*.tsbuildinfo
+coverage/
+
+# macOS / editor
+.DS_Store
+.vscode/
